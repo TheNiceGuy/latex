@@ -1,0 +1,112 @@
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+\def\title{Gaussian Integral With $\alpha=1$}
+\def\date{June 6, 2015}
+\def\author{Gabriel-Andrew Pollo-Guilbert}
+
+\begin{document}
+\input{title.tex}
+The Gaussian integral can be defined as the improper integral in $\mathbb{R}$:
+\begin{equation}
+G(\alpha)=\int_{-\infty}^{+\infty}\mathrm e^{-\alpha x^2}\mathrm dx
+\end{equation}
+
+A special case of this integral arises when $\alpha = 1$, which yields the equality:
+\begin{equation}
+G(1)=\int_{-\infty}^{+\infty}\mathrm e^{-x^2}\mathrm dx = \sqrt{\pi}
+\end{equation}
+
+This equality can be proven using various methods. The most intuitive proof is using Cartesians coordinates on half of the integral. We can get these coordinates by squaring the integral and posing $x = y$ in the right integral:
+\begin{equation}
+\begin{split}
+                   H(1)           &= \int_{0}^{\infty}\mathrm e^{-x^2}\mathrm dx\\
+\Rightarrow \left [H(1)\right ]^2 &= \int_{0}^{\infty}\mathrm e^{-x^2}\mathrm dx\cdot 
+                                     \int_{0}^{\infty}\mathrm e^{-x^2}\mathrm dx\\
+                                  &= \int_{0}^{\infty}\mathrm e^{-x^2}\mathrm dx\cdot
+                                     \int_{0}^{\infty}\mathrm e^{-y^2}\mathrm dy\quad\\
+\end{split}
+\end{equation}
+
+We now have two integrals using differents variables. Thus, we can simplify (3) by insering one integral into the other:
+\begin{equation}
+\begin{split}
+\int_{0}^{\infty}\mathrm e^{-x^2}\mathrm dx\cdot
+\int_{0}^{\infty}\mathrm e^{-y^2}\mathrm dy
+&= \int_{0}^{\infty}\mathrm e^{-x^2}\left [
+   \int_{0}^{\infty}\mathrm e^{-y^2}\mathrm dy\right ]\mathrm dx\\
+&= \int_{0}^{\infty}\left [\int_{0}^{\infty}
+   \mathrm e^{-x^2}\cdot \mathrm e^{-y^2}\mathrm dy\right ]\mathrm dx\\
+&= \int_{0}^{\infty}\int_{0}^{\infty}
+   \mathrm e^{-x^2}\cdot \mathrm e^{-y^2}\mathrm dy\,\mathrm dx\\
+&= \int_{0}^{\infty}\int_{0}^{\infty}
+   \mathrm e^{-x^2-y^2}\mathrm dy\,\mathrm dx\\
+&= \int_{0}^{\infty}\int_{0}^{\infty}
+   \mathrm e^{-(x^2+y^2)}\mathrm dy\,\mathrm dx\\
+\end{split}
+\end{equation}
+
+Because $x,y\in\mathbb{R}$, we can define $y=s\,x$ and $\mathrm dy = x\,\mathrm ds$, where $s\in\mathbb{R}$:
+\begin{equation}
+\begin{split}
+\int_{0}^{\infty}\int_{0}^{\infty}
+\mathrm e^{-(x^2+y^2)}\mathrm dy\,\mathrm dx
+&= \int_{0}^{\infty}\int_{0}^{\infty}\mathrm e^{-(x^2+s^2x^2)}x\,\mathrm ds\,\mathrm dx\\
+&= \int_{0}^{\infty}\int_{0}^{\infty}x\,\mathrm e^{-x^2(1+s^2)}\mathrm ds\,\mathrm dx\\
+&= \int_{0}^{\infty}\int_{0}^{\infty}x\,\mathrm e^{-x^2(1+s^2)}\mathrm dx\,\mathrm ds
+\end{split}
+\end{equation}
+
+The inner integral can be easily solved by posing $u=x^2(1+s^2)$ and $\mathrm du=2x(1+s^2)\,\mathrm dx$:
+\begin{equation}
+\begin{split}
+\int_{0}^{\infty}x\,\mathrm e^{-x^2(1+s^2)}\mathrm dx
+&= \frac{1}{2(1+s^2)}\int_{0}^{\infty}2(1+s^2)\,\mathrm e^{-x^2(1+s^2)}\mathrm dx\\
+&= \frac{1}{2(1+s^2)}\int_{0}^{\infty}\mathrm e^{-u}\mathrm du\\
+&= \frac{1}{2(1+s^2)}\lim_{b\rightarrow \infty}\left [-e^{-u} \right ]_{0}^{b}\\
+&= \frac{1}{2(1+s^2)}\\
+\end{split}
+\end{equation}
+
+Thus, the inner integral in (5) can be replaced by the result given by (6):
+\begin{equation}
+\begin{split}
+\int_{0}^{\infty}\int_{0}^{\infty}x\,\mathrm e^{-x^2(1+s^2)}\mathrm dx\,\mathrm ds
+&= \int_{0}^{\infty}\frac{1}{2(1+s^2)}\mathrm ds\\
+&= \frac{1}{2}\int_{0}^{\infty}\frac{1}{1+s^2}\mathrm ds\\
+\end{split}
+\end{equation}
+
+The remaining integral is a case of the inverse trigonometric function of the tangent. The primitive will be of the following form where $a\in \mathbb{R}$ and $u$ is a real function:
+\begin{equation}
+\begin{split}
+\int\frac{1}{a^2+u^2}\mathrm du=\frac{1}{a}\text{arctan}\left ( \frac{u}{a}\right )
+\end{split}
+\end{equation}
+
+By solving the final part of the integral, we get:
+\begin{equation}
+\begin{split}
+\frac{1}{2}\int_{0}^{\infty}\frac{1}{1+s^2}\mathrm ds
+=\frac{1}{2}\lim_{b\rightarrow \infty}\left [\text{arctan}\left (s\right ) \right ]_{0}^{b}
+=\frac{\pi}{4}
+\end{split}
+\end{equation}
+
+Thus:
+\begin{equation}
+\begin{split}
+\left [\int_{0}^{\infty}\mathrm e^{-x^2}\mathrm dx\right ]^2&=\frac{\pi}{4}\\
+\Rightarrow\int_{0}^{\infty}\mathrm e^{-x^2}\mathrm dx      &=\frac{\sqrt{\pi}}{2}
+\end{split}
+\end{equation}
+
+We need to calculate the other part of the integral. By looking at its graph and knowing that $e^{-(x)^2}=e^{-(-x)^2}$, we can assume that the integral is even. Thus, we can double the half to obtain the final result:
+\begin{equation}
+\int_{-\infty}^{+\infty}\mathrm e^{-x^2}\mathrm dx
+=2\int_{0}^{\infty}\mathrm e^{-x^2}\mathrm dx
+=\sqrt{\pi}
+\end{equation}
+\end{document}

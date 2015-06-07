@@ -1,0 +1,66 @@
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+\def\title{Proof of the Volume of a Sphere}
+\def\date{June 7, 2015}
+\def\author{Gabriel-Andrew Pollo-Guilbert}
+
+\begin{document}
+\input{title.tex}
+The volume of a sphere can be defined as with the equation, where $r\in \mathbb{R}$:
+\begin{equation}
+V_{sphere}(r)=\frac{4\pi r^{3}}{3}
+\end{equation}
+
+This equation can be proven using calculus. We know that a circle is defined with the following equation, where $x,y,r\in \mathbb{R}$:
+\begin{equation}
+x^{2}+y^{2}=r^{2}
+\end{equation}
+
+With a little bit of algebra, we can get a function that gives the half of the circle:
+\begin{alignat*}{3}
+                & &      x^{2}+y^{2} &=      r^{2}       \\
+\Leftrightarrow & &            y^{2} &=      r^{2}-x^{2} \\
+\Leftrightarrow & &      \sqrt{y^{2}}&=\sqrt{r^{2}-x^{2}}\\
+\Leftrightarrow & &  \left |y\right |&=\sqrt{r^{2}-x^{2}}\\
+\Rightarrow     & &         y        &=\sqrt{r^{2}-x^{2}}
+\end{alignat*}
+
+If we rotate the half-circle around the x axis, we get a sphere. We can, thus, calculate the volume of a sphere using a solid of revolution. Since the function is defined in $x\in\left [-r, r\right ]$, we can use the disk method:
+\begin{equation}
+\begin{split}
+V_{sphere}(r)&=   \int_{-r}^{r}\pi\left [\sqrt{r^{2}-x^{2}}\right ]^{2}\mathrm dx\\
+             &=   \int_{-r}^{r}\pi\left [      r^{2}-x^{2} \right ]    \mathrm dx\\
+             &=\pi\int_{-r}^{r}   \left [      r^{2}-x^{2} \right ]    \mathrm dx\\
+\end{split}
+\end{equation}
+
+This integral can be easily solved:
+\begin{equation}
+\begin{split}
+\pi\int_{-r}^{r}\left [r^{2}-x^{2}\right ]\mathrm dx
+&=\pi      \int_{-r}^{r}r^{2}\mathrm dx-\pi\int_{-r}^{r}x^{2}\mathrm dx\\
+&=\pi r^{2}\int_{-r}^{r}     \mathrm dx-\pi\int_{-r}^{r}x^{2}\mathrm dx\\
+&=\pi r^{2}\cdot x\biggr\rvert_{-r}^{r}-\pi\cdot \frac{x^{3}}{3}\biggr\rvert_{-r}^{r}\\
+&=\pi r^{2}\cdot 2r-\pi\cdot \frac{2r^{3}}{3}
+\end{split}
+\end{equation}
+
+This is a now a simple matter of simplifying the expression:
+\begin{equation}
+\begin{split}
+\pi r^{2}\cdot 2r-\pi\cdot \frac{2r^{3}}{3}
+&=      2\pi r^{3}    -\frac{2\pi r^{3}}{3}\\
+&=\frac{6\pi r^{3}}{3}-\frac{2\pi r^{3}}{3}\\
+&=\frac{4\pi r^{3}}{3}\\
+\end{split}
+\end{equation}
+
+Thus, the volume of a sphere follows the predicted equation:
+\begin{equation}
+V_{sphere}(r)=\int_{-r}^{r}\pi\left [\sqrt{r^{2}-x^{2}}\right ]^{2}\mathrm dx=\frac{4\pi r^{3}}{3}
+\end{equation}
+
+\end{document}
