@@ -1,0 +1,48 @@
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathtools}
+
+\def\title{Division et Modulo}
+\def\date{Mars 6, 2016}
+\def\author{Gabriel-Andrew Pollo-Guilbert}
+
+\newenvironment{exemple}
+{\noindent\textit{Exemple. }}
+{}
+\newtheorem{theorem}{Théorème}
+
+\begin{document}
+\input{title.tex}
+\begin{theorem}
+Soit $a,b\in\mathbb{Z}$ tel que $a|b$. Alors $a|bc$, $\forall c\in\mathbb{Z}$.
+\end{theorem}
+
+Soit $a,b\in\mathbb{Z}$ tel que $a|b\Rightarrow\exists k\in\mathbb{Z}$ tel que $b=ak$. Donc $bc=akc$, $\forall c\in\mathbb{Z}$. Puisque $kc\in\mathbb{Z}\Rightarrow a|bc$.
+
+\begin{theorem}
+Soit $a,b,c\in\mathbb{Z}$ tel que $a|b$ et $b|c$, alors $a|c$.
+\end{theorem}
+
+Soit $a,b,c\in\mathbb{Z}$ tel que $a|b$ et $b|c\Rightarrow\exists s,t\in\mathbb{Z}$ tel que $b=as$ et $c=bt$. Donc $b=\dfrac{c}{t}\Rightarrow\dfrac{c}{t}=as\Rightarrow c=a(st)$. Puisque $st\in\mathbb{Z}\Rightarrow a|c$.
+
+\begin{theorem}
+Soit $a,b\in\mathbb{Z}$ et $m\in\mathbb{N^*}$. Si $\exists k\in\mathbb{Z}$ tel que $a=b+km$, alors $a\equiv b\mod m$.
+\end{theorem}
+
+Soit $a,b\in\mathbb{Z}$ et $m\in\mathbb{N^*}$ tel que $a\equiv b\mod m\Rightarrow\exists r\in\mathbb{N}$ et $s,t\in\mathbb{Z}$ tel que $a=sm+r$ et $b=tm+r$. Donc $a-sm=b-tm\Rightarrow a=b+(s-t)m$. Puisque $s-t\in\mathbb{Z}\Rightarrow a=b+km$, $k\in\mathbb{Z}$.
+
+\begin{theorem}
+Soit $a,b,c,d\in\mathbb{Z}$ et $m\in\mathbb{N^*}$. Si $a\equiv b\mod m$ et $c\equiv d\mod m$, alors $(a+c)\equiv(b+d)\mod m$.
+\end{theorem}
+
+Soit $a,b,c,d\in\mathbb{Z}$ et $m\in\mathbb{N^*}$ tel que $a\equiv b\mod m$ et $c\equiv d\mod m\Rightarrow\exists s,t\in\mathbb{Z}$ tel que $a=b+sm$ et $c=d+tm$. Par addition, $a+c=b+sm+d+tm\Rightarrow(a+c)=(b+d)+(s+t)m$. Puisque $(s+t)\in\mathbb{Z}\Rightarrow (a+c)\equiv(b+d)\mod m$.
+
+\begin{theorem}
+Soit $a,b,c,d\in\mathbb{Z}$ et $m\in\mathbb{N^*}$. Si $a\equiv b\mod m$ et $c\equiv d\mod m$, alors $ac\equiv bd\mod m$.
+\end{theorem}
+
+Soit $a,b,c,d\in\mathbb{Z}$ et $m\in\mathbb{N^*}$ tel que $a\equiv b\mod m$ et $c\equiv d\mod m\Rightarrow\exists s,t\in\mathbb{Z}$ tel que $a=b+sm$ et $c=d+tm$. Par multiplication, $ac=(b+sm)(d+tm)\Rightarrow ac=bd+m(bt+ds+stm)$. Puisque $(bt+ds+stm)\in\mathbb{Z}\Rightarrow ac\equiv bd\mod m$.
+
+\end{document}
