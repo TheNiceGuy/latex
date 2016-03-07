@@ -1,0 +1,93 @@
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathtools}
+
+\def\title{La Valeur Absolue}
+\def\date{Mars 6, 2016}
+\def\author{Gabriel-Andrew Pollo-Guilbert}
+
+\newenvironment{exemple}
+{\noindent\textit{Exemple. }}
+{}
+\newtheorem{theorem}{Théorème}
+
+\begin{document}
+\input{title.tex}
+\begin{theorem}
+Soit $x\in\mathbb{R}$, alors la valeur absolue de $x$ dénotée $|x|$ retourne toujours une valeur positive.
+\begin{equation}
+|x|=\left\{
+  \begin{array}{r}
+     x\text{, si $x \geq 0$}\\
+    -x\text{, si $x < 0$}\\
+  \end{array}
+\right.
+\end{equation}
+\end{theorem}
+\begin{exemple}
+Soit $a=-2$, donc $|a|=-a$, car $a<0$. Finalement, $-a=-(-2)=2$, ce qui est une valeur positive.
+\end{exemple}
+
+\begin{theorem}
+Soit $x\in\mathbb{R}$, alors la racine carrée de $x$ au carré retourne toujours une valeur positive.
+\begin{equation}
+\sqrt{x^{2}}=|x|
+\end{equation}
+\end{theorem}
+\begin{exemple}
+Soit $b=-4$, donc $\sqrt{b^{2}}=|b|=-b$, car $b<0$. Finalement, $-b=-(-4)=4$, ce qui est une valeur positive.
+\end{exemple}\\
+
+L'exemple précédent ne contredit pas le fait qu'une équation polynomiale du deuxième degré peut avoir une solution positive et négative. Il y a une différence entre résoudre une équation et faire la racine carré d'une valeur. Lors d'une résolution, on cherche la valeur de $x$. Donc, on ne sait pas si elle est négative ou positive de sorte que $\sqrt{x^{2}}=|x|=\pm x$.\\
+
+\begin{exemple}
+Soit l'équation réelle $x^2-4=0$ où $x\in\mathbb{R}$.
+\begin{alignat*}{3}
+                & &      x^2-4&=0        & &\\
+\Leftrightarrow & &        x^2&=4        & &\quad\quad\textit{isoler $x^{2}$}\\
+\Leftrightarrow & & \sqrt{x^2}&=\sqrt{4} & &\quad\quad\textit{simplification de la racine}\\
+\Leftrightarrow & &        |x|&=2        & &\quad\quad\textit{théorème 2}\\
+\Leftrightarrow & &      \pm x&=2        & &\quad\quad\textit{théorème 1}\\
+\Leftrightarrow & &          x&=\pm 2    & &\quad\quad\textit{isoler $x$}
+\end{alignat*}
+\end{exemple}
+\indent L'important à retenir de l'exemple précédènt est qu'en aucun cas, la racine carré peut donner une valeur positive ou négative comme $\sqrt{4}\neq\pm 2$. Le $\pm$ provient du fait que l'on ne sait pas si l'expression à l'intérieur de la valeur absolue est négative ou positive, donc $|x|=\pm x$. C'est en isolant $x$ que le $\pm$ semble provenir de la racine carré.\pagebreak
+
+\begin{exemple}
+Soit l'équation réelle $\left(\dfrac{1}{x}+3\right)^2-16=0$ où $x\in\mathbb{R}$.
+\begin{alignat*}{3}
+                & &     \left(\frac{1}{x}+3\right)^2-16&=0                 & &\\
+\Leftrightarrow & &        \left(\frac{1}{x}+3\right)^2&=16                & &\quad\quad\textit{isoler l'expression au carré}\\
+\Leftrightarrow & & \sqrt{\left(\frac{1}{x}+3\right)^2}&=\sqrt{16}         & &\quad\quad\textit{simplification de la racine}\\
+\Leftrightarrow & &          \left|\frac{1}{x}+3\right|&=4                 & &\quad\quad\textit{théorème 2}\\
+\Leftrightarrow & &       \pm\left(\frac{1}{x}+3\right)&=4                 & &\quad\quad\textit{théorème 1}\\
+\Leftrightarrow & &                       \frac{1}{x}+3&=\pm 4             & &\quad\quad\textit{isoler l'expression}\\
+\Leftrightarrow & &                         \frac{1}{x}&=\pm 4-3           & &\\
+\Leftrightarrow & &                                   x&=\frac{1}{\pm 4-3} & &\quad\quad\textit{isoler $x$}
+\end{alignat*}
+Donc, $x=\dfrac{1}{+4-3}=1$ ou $x=\dfrac{1}{-4-3}=-\dfrac{1}{7}$.
+\end{exemple}\pagebreak
+
+\begin{exemple}
+Soit la limite réelle $\lim_{x\rightarrow-\infty}\dfrac{-2x+1}{\sqrt{2x^2+3x}}$ où $x\in\mathbb{R}\setminus\left[-\dfrac{3}{2},0\right]$.
+\begin{alignat*}{3}
+   &\lim_{x\rightarrow-\infty}\dfrac{-2x+1}{\sqrt{2x^2+3x}}
+&&\textit{$\left(forme\,\,\frac{\infty}{\infty}\right)$}\\
+  =&\lim_{x\rightarrow-\infty}\dfrac{x\left(-2+\dfrac{1}{x}\right)}{\sqrt{x^2\left(2+\dfrac{3}{x}\right)}}
+&&\textit{mise en évidance}\\
+  =&\lim_{x\rightarrow-\infty}\dfrac{x\left(-2+\dfrac{1}{x}\right)}{\sqrt{x^2}\sqrt{2+\dfrac{3}{x}}}
+&&\textit{propriété des racines}\\
+  =&\lim_{x\rightarrow-\infty}\dfrac{x\left(-2+\dfrac{1}{x}\right)}{|x|\sqrt{2+\dfrac{3}{x}}}
+&&\textit{théorème 2}\\
+  =&\lim_{x\rightarrow-\infty}\dfrac{x\left(-2+\dfrac{1}{x}\right)}{-x\sqrt{2+\dfrac{3}{x}}}
+&&\textit{théorème 1, $x\rightarrow-\infty\Rightarrow x<0$}\\
+  =&\lim_{x\rightarrow-\infty}\dfrac{-2+\dfrac{1}{x}}{-\sqrt{2+\dfrac{3}{x}}}
+&&\textit{$\left(forme\,\,\frac{-2}{-\sqrt{2}}\right)$}\\
+  =&\frac{-2}{-\sqrt{2}}=\frac{2}{\sqrt{2}}\cdot\frac{\sqrt{2}}{\sqrt{2}}=\frac{2\sqrt{2}}{2}&&=\sqrt{2}\\
+\end{alignat*}
+\end{exemple}\pagebreak
+
+
+\end{document}

@@ -8,7 +8,7 @@ MV=/usr/bin/mv
 TEX=/usr/bin/pdflatex
 MKDIR=/usr/bin/mkdir -p
 
-OBJECTS=$(SRCDIR)/gauss.pdf $(SRCDIR)/sphere.pdf
+OBJECTS=$(SRCDIR)/gauss.pdf $(SRCDIR)/sphere.pdf $(SRCDIR)/abs.pdf
 
 all: $(EXEC)
 
